@@ -35,7 +35,7 @@ argparse
 
 
 ## Experiment on Flying Chairs
-***Flying Chairs Dataset: [download](http://lmb.informatik.uni-freiburg.de/resources/datasets/FlyingChairs.en.html)***
+**Flying Chairs Dataset: [download](http://lmb.informatik.uni-freiburg.de/resources/datasets/FlyingChairs.en.html)**
 
 ```bash
 # Train the model from scratch
