@@ -92,7 +92,7 @@ Set div_flow to 20., training appears to be unstable compare to div_flow 1. From
 * **div flow: 20.**
 * lr: 0.001 for 1st 58 epochs, **5e-4** for 2nd 116 epochs and divided by 2 for ever 58 epochs.
 
-Starting from the model above at epoch 58, I change the learning rate to 5e-4 instead of 0.01, the final EPE gets much better (~3.45) but still cannot match the result from the paper. Suggesions on some other lr policies or loss functions are appreciated.
+Starting from the model above at epoch 58, change the learning rate to 5e-4 instead of 0.01, the final EPE gets much better (~3.45) but still cannot match the result from the paper. Suggetions on some other lr policies or loss functions are appreciated.
 
 <img alt="loss" src="./github/05-07-14/loss.png" width="350"/><br />
 <img alt="mean epe" src="./github/05-07-14/mean_epe.png" width="350"/>
