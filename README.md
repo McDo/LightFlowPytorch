@@ -5,6 +5,7 @@ The code is inspired from [FlowNetPytorch](https://github.com/ClementPinard/Flow
 
 ### Model
 Replace convolutions with **3x3 depthwise separable** convolutions. Replace transposed convolutions with **nearest-neighbor upsampling** to address checkerboard artifacts.   
+
 Unlike FlowNet that uses multiple optical flow predictors for training and a finest predictor for inferencing, Light Flow aggregates those multi-resolution predictions into a finest one for both training and testing. See [Model Structure](#model-structure) for details.
 
 ### Learning rate policy
