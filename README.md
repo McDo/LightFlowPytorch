@@ -2,23 +2,24 @@
 Pytorch implementation of **Light Flow**, a light weight version of [FlowNet](https://arxiv.org/pdf/1504.06852.pdf), which is introduced in [Towards High Performance Video Object Detection for Mobiles](https://arxiv.org/pdf/1804.05830.pdf) by Xizhou Zhu, Jifeng Dai, Xingchi Zhu, Yichen Wei and Lu Yuan. It significantly speeds up the FlowNet by ***65x*** theoretically, while only causes minor drop in accuracy.
 
 The code is inspired from [FlowNetPytorch](https://github.com/ClementPinard/FlowNetPytorch), major differences include:
-1. **Model**  
+
+**Model**  
 Replace convolutions with **3x3 depthwise separable** convolutions. Replace transposed convolutions with **nearest-neighbor upsampling** to address checkerboard artifacts.   
 Unlike FlowNet that uses multiple optical flow predictors for training and a finest predictor for inferencing, Light Flow aggregates those multi-resolution predictions into a finest one for both training and testing. See [Model Structure](#model-structure) for details.
 
-2. **Learning rate policy**  
+**Learning rate policy**  
 403 epochs are performed on 2 GPUs (1080Ti) with each one holds 64 image pairs. Tested against learning rate 1e-2 along with epoch 59 - 173 following the paper, the validation EPE was abnormaly raised up to a high value ~8.5 and jiggling there around as training goes on, thus switch it back to half of the initial learning rate instead. See [Experiment on Flying Chairs](#experiment-on-flying-chairs) for details.
 
-    | Epoch       | Learning Rate |
-    | ----------- | ------------- |
-    | 0 - 57      | 1e-3          |
-    | 58 - 173    | 5e-4          |
-    | 174 - 231   | 2.5e-4        |
-    | 232 - 288   | 1.25e-4       |
-    | 289 - 346   | 6.25e-5       |
-    | 347 - 402   | 3.125e-5      |
+| Epoch       | Learning Rate |
+| ----------- | ------------- |
+| 0 - 57      | 1e-3          |
+| 58 - 173    | 5e-4          |
+| 174 - 231   | 2.5e-4        |
+| 232 - 288   | 1.25e-4       |
+| 289 - 346   | 6.25e-5       |
+| 347 - 402   | 3.125e-5      |
 
-3. **Loss**  
+**Loss**  
 [FlowNetPytorch](https://github.com/ClementPinard/FlowNetPytorch) applies multiscale loss with 5 predefined weights for each ***L2*** distance between multi-resolution predictions and the respect ground thruth flow. Here a single ***L1*** loss is used for Light Flow instead.
 
 
@@ -34,7 +35,7 @@ argparse
 
 
 ## Experiment on Flying Chairs
-### Flying Chairs Dataset: [download](http://lmb.informatik.uni-freiburg.de/resources/datasets/FlyingChairs.en.html).
+***Flying Chairs Dataset: [download](http://lmb.informatik.uni-freiburg.de/resources/datasets/FlyingChairs.en.html)***
 
 ```bash
 # Train the model from scratch
@@ -113,4 +114,4 @@ You can download the trained model from `flying_chairs` folder. If you find some
 <img alt="decoder" src="./github/model/decoder.png" width="600"/>
 
 ## License
-MIT
+[MIT](./LICENSE)
