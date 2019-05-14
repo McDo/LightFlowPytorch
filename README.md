@@ -47,6 +47,7 @@ tensorboard --logdir=/path/to/checkoints
 ```
 
 ### config-1
+* batch size: 64 pairs on each gpu
 * optimizer: Adam
 * momentum: 0.9
 * beta: 0.999
@@ -63,6 +64,7 @@ With div_flow set to 1., there is a smooth training progress but poor performanc
 
 
 ### config-2
+* batch size: 64 pairs on each gpu
 * optimizer: Adam
 * momentum: 0.9
 * beta: 0.999
@@ -79,6 +81,7 @@ Set div_flow to 20., training appears to be unstable compare to div_flow 1. From
 
 
 ### config-3
+* batch size: 64 pairs on each gpu
 * optimizer: Adam
 * momentum: 0.9
 * beta: 0.999
