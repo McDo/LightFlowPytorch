@@ -27,7 +27,7 @@ Unlike FlowNet that uses multiple optical flow predictors for training and a fin
 ## Prerequisite
 ```
 python3
-pytorch >= 1.0.1
+pytorch >= 0.4.1
 tensorboard-pytorch
 tensorboardX >= 1.4
 imageio
