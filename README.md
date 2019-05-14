@@ -3,11 +3,11 @@ Pytorch implementation of **Light Flow**, a light weight version of [FlowNet](ht
 
 The code is inspired from [FlowNetPytorch](https://github.com/ClementPinard/FlowNetPytorch), major differences include:
 
-**Model**  
+### Model
 Replace convolutions with **3x3 depthwise separable** convolutions. Replace transposed convolutions with **nearest-neighbor upsampling** to address checkerboard artifacts.   
 Unlike FlowNet that uses multiple optical flow predictors for training and a finest predictor for inferencing, Light Flow aggregates those multi-resolution predictions into a finest one for both training and testing. See [Model Structure](#model-structure) for details.
 
-**Learning rate policy**  
+### Learning rate policy
 403 epochs are performed on 2 GPUs (1080Ti) with each one holds 64 image pairs. Tested against learning rate 1e-2 along with epoch 59 - 173 following the paper, the validation EPE was abnormaly raised up to a high value ~8.5 and jiggling there around as training goes on, thus switch it back to half of the initial learning rate instead. See [Experiment on Flying Chairs](#experiment-on-flying-chairs) for details.
 
 | Epoch       | Learning Rate |
@@ -19,7 +19,7 @@ Unlike FlowNet that uses multiple optical flow predictors for training and a fin
 | 289 - 346   | 6.25e-5       |
 | 347 - 402   | 3.125e-5      |
 
-**Loss**  
+### Loss
 [FlowNetPytorch](https://github.com/ClementPinard/FlowNetPytorch) applies multiscale loss with 5 predefined weights for each ***L2*** distance between multi-resolution predictions and the respect ground thruth flow. Here a single ***L1*** loss is used for Light Flow instead.
 
 
