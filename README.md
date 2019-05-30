@@ -40,7 +40,7 @@ argparse
 
 ```bash
 # Train the model from scratch
-python main.py
+python train.py
 ```
 ```bash
 # Checkout the training and testing progress
