@@ -115,9 +115,8 @@ You can download the trained model from `flying_chairs` folder. If you find some
 
 ## Model Structure
 <img alt="encoder" src="./github/model/encoder.png" width="600"/><br />
-<img alt="decoder" src="./github/model/decoder.png" width="600"/>
-
-***cited fome [Towards High Performance Video Object Detection for Mobiles](https://arxiv.org/pdf/1804.05830.pdf)***
+<img alt="decoder" src="./github/model/decoder.png" width="600"/><br />
+cited fome [Towards High Performance Video Object Detection for Mobiles](https://arxiv.org/pdf/1804.05830.pdf)
 
 ## License
 [MIT](./LICENSE)
